@@ -1,3 +1,8 @@
+/* Crear cuentas bancarias  */
+
+INSERT INTO bank_account (name_bank, account_number, email, phone, address, observation,balance) VALUES ('Banorte', 049051913,'redilberto@gmail.com','900909999','Ave Padre Mier','Suc Centro', 10000.50);
+INSERT INTO bank_account (name_bank, account_number, email, phone, address, observation, balance) VALUES ('Santander', 045566613,'santander@gmail.com','55666555','Ave Universidad','Suc Universidad', 15300.25);
+
 /* Populate tables */
 INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('Andres', 'Guzman', 'profesor@bolsadeideas.com', '2017-08-01', '');
 INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('John', 'Doe', 'john.doe@gmail.com', '2017-08-02', '');
@@ -51,3 +56,10 @@ INSERT INTO `users` (username, password, enabled) VALUES ('admin','$2a$10$DOMDxj
 INSERT INTO `authorities` (user_id, authority) VALUES (1,'ROLE_USER');
 INSERT INTO `authorities` (user_id, authority) VALUES (2,'ROLE_ADMIN');
 INSERT INTO `authorities` (user_id, authority) VALUES (2,'ROLE_USER');
+
+/* Crear budget account number */
+
+INSERT INTO `budget_account_number` ( name, number ) VALUES ('Bank', 10);
+INSERT INTO `budget_account_number` ( name, number ) VALUES ('Suppliers', 20);
+INSERT INTO `budget_account_number` ( name, number ) VALUES ('Customers', 30);
+
