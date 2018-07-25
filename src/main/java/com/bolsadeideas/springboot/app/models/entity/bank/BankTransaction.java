@@ -2,6 +2,7 @@ package com.bolsadeideas.springboot.app.models.entity.bank;
 
 import com.bolsadeideas.springboot.app.models.entity.accounts.BudgetAccount;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 import org.springframework.format.annotation.NumberFormat.Style;
 import javax.persistence.*;
@@ -22,7 +23,7 @@ public class BankTransaction implements Serializable {
 
     @Column(name = "date")
     //@Temporal(TemporalType.DATE)
-    //@DateTimeFormat(pattern = "yyyy-MM-dd" )
+   // @DateTimeFormat(pattern = "yyyy-MM-dd" )
     private Date date;
 
 

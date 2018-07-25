@@ -30,7 +30,8 @@ public class TransactionServiceImp implements TransactionService {
        // updateBalance(transaction);
     }
 
-//    @Override
+
+    //    @Override
 //    public void updateBalance(Transaction transactions) {
 //        Double balance = transactions.getBankAccount().getBalance();
 //        List<Transaction> transactionsList = transactionDao.getAlltransactionsOrderByASC(transactions.getBankAccount().getId());
@@ -44,12 +45,12 @@ public class TransactionServiceImp implements TransactionService {
 //
 //    }
 //
-//    @Override
-//    public List<Transaction> findTransactionsbyDate(Long id, Date start, Date end) {
-//
-//        return transactionDao.findTransactionsbyDate(id, start, end);
-//
-//    }
+    @Override
+    public List<BankTransaction> findTransactionsbyDate(Long id, Date start, Date end) {
+
+        return transactionDao.findTransactionsbyDate(id, start, end);
+
+    }
 //
 //    @Override
 //    public Transaction findTransactionById(long id) {

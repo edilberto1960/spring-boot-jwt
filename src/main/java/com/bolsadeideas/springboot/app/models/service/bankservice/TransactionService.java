@@ -8,11 +8,12 @@ import java.util.List;
 
 public interface TransactionService {
 
-    public void save(BankTransaction transaction);
+     void save(BankTransaction transaction);
 
 //    public void updateBalance(Transaction transactions);
 //
-//    List<Transaction> findTransactionsbyDate(Long id, Date start, Date end);
+
+    List<BankTransaction> findTransactionsbyDate(Long id, Date start, Date end);
 //
 //    Transaction findTransactionById(long id);
 //

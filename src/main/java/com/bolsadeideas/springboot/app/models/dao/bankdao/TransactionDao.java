@@ -1,16 +1,23 @@
 package com.bolsadeideas.springboot.app.models.dao.bankdao;
 
 import com.bolsadeideas.springboot.app.models.entity.bank.BankTransaction;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
+
+import java.util.Date;
+import java.util.List;
 
 
 public interface TransactionDao extends CrudRepository<BankTransaction, Long> {
 
-//    @Query("SELECT d FROM Transactions  d  WHERE bankAccount.id=:id ORDER BY date ASC")
-//    List<Transaction> getAlltransactionsOrderByASC(@Param("id") Long id);
+
+
+  //  @Query("SELECT d FROM Transactions  d  WHERE bankAccount.id=:id ORDER BY date ASC")
+  //  List<BankTransaction> getAlltransactionsOrderByASC(@Param("id") Long id);
 //
-//    @Query("SELECT d  FROM Transactions d  WHERE d.date BETWEEN :start AND :end AND bankAccount.id=:id ORDER BY date ASC, id ASC")
-//    List<Transaction> findTransactionsbyDate(@Param("id") long id, @Param("start") Date start, @Param("end") Date end);
+    @Query("SELECT d  FROM BankTransaction d  WHERE d.date BETWEEN :start AND :end AND bankAccount.id=:id ORDER BY date ASC, id ASC")
+    List<BankTransaction> findTransactionsbyDate(@Param("id") long id, @Param("start") Date start, @Param("end") Date end);
 //
 //    Transaction findTransactionsById(long id);
 //

@@ -2,6 +2,7 @@
 
 INSERT INTO bank_account (name_bank, account_number, email, phone, address, observation,balance) VALUES ('Banorte', 049051913,'redilberto@gmail.com','900909999','Ave Padre Mier','Suc Centro', 10000.50);
 INSERT INTO bank_account (name_bank, account_number, email, phone, address, observation, balance) VALUES ('Santander', 045566613,'santander@gmail.com','55666555','Ave Universidad','Suc Universidad', 15300.25);
+INSERT INTO bank_account (name_bank, account_number, email, phone, address, observation, balance) VALUES ('Scotiank Bank', 5656655,'scotian@gmail.com','89977777','Ave Universidad','Suc Universidad', 17300.25);
 
 /* Populate tables */
 INSERT INTO clientes (nombre, apellido, email, create_at, foto) VALUES('Andres', 'Guzman', 'profesor@bolsadeideas.com', '2017-08-01', '');

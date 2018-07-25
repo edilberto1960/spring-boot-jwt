@@ -24,15 +24,20 @@ public class BankController {
     //-------------------Create a Bank Account--------------------------------------------------------
 
     @RequestMapping(value = "/addBankAccount/", method = RequestMethod.POST)
-    public ResponseEntity<BankAccount> createUser(@RequestBody BankAccount bankAccount, UriComponentsBuilder ucBuilder) {
+    public ResponseEntity<Object> createUser(@RequestBody BankAccount bankAccount, UriComponentsBuilder ucBuilder) {
         System.out.println("Creating User " + bankAccount.getNameBank() );
 
 
         if (bankAccountService.findByAccount(bankAccount.getAccountNumber()) != null) {
             System.out.println("A User with name " + bankAccount.getNameBank() + " already exist");
             HttpHeaders headers = new HttpHeaders();
-            headers.set("error ", "bank account already exist");
-            return new ResponseEntity<BankAccount>(headers, HttpStatus.CONFLICT);
+            headers.add("error", "bank account already exist");
+            String message = new String();
+            message ="El numero de la cuenta ya existe";
+            headers.add("message", message);
+            headers.set("messy", "Error de bank already");
+
+            return new ResponseEntity<Object>(message,headers, HttpStatus.FORBIDDEN);
         }
 
 
@@ -42,7 +47,7 @@ public class BankController {
         HttpHeaders headers = new HttpHeaders();
         headers.set("accepted ok","bank account is ok");
 
-        return new ResponseEntity<BankAccount>(bank, headers, HttpStatus.CREATED);
+        return new ResponseEntity<Object>( bank, HttpStatus.ACCEPTED);
     }
 
     //------------------- Update a Bank Account --------------------------------------------------------
@@ -70,7 +75,7 @@ public class BankController {
 
     }
 
-    //-------------------Retrieve All Users--------------------------------------------------------
+    //-------------------Retrieve All Banks Accounts --------------------------------------------------------
 
     @RequestMapping(value = "/getAllBankAccounts/", method = RequestMethod.GET)
     public ResponseEntity<List<BankAccount>> listAllUsers() {
@@ -85,9 +90,14 @@ public class BankController {
             headers.set("error", "no existen cuentas bancarias");
             return new ResponseEntity<List<BankAccount>>(headers, HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
         }
-
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         return new ResponseEntity<List<BankAccount>>(bankAccounts, HttpStatus.OK);
+
     }
 
 }
